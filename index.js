@@ -8,22 +8,16 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-function myFunction(num) {
-  console.log(num);
-  return Date.parse(num) / 1000;
-}
-
 const createDate = (dates, index) => {
-  const newArr = dates.map(myFunction);
-  const newArr2 = [];
+  const newArr = [];
+  for (let i = 0; i < dates.length; i++) {
+    newArr[i] = Date.parse(dates[i]) / 1000;
+  }
+  const newArr2 = newArr;
 
   if (typeof index === "undefined") {
-    for (let i = 0; i < dates.length; i++) {
-      newArr2[i] = Date.parse(dates[i]) / 1000;
-    }
     return newArr2.sort().join("-");
   } else {
-    // tgl = new Date(dates[index]).getTime();
     return newArr[index].toString();
   }
 };
